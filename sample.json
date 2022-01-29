@@ -1,0 +1,45 @@
+{
+	"auth": {
+		"token": "YOUR_TOKEN_HERE",
+		"authors": [ "YOUR_USERID_HERE" ]
+	},
+
+	"base": {
+		"prefix": "my.",
+		"color": "0xB9FE84",
+		"starboard": {
+			"emoji": "⭐",
+			"count": 2
+		},
+		"birthdays": {
+			"today": "Happy Birthday, {name}! Hope it's a good one!",
+			"nextweek": "Pst, {name} has a birthday in a week - on {date}!"
+		}
+	},
+
+	"data": {
+		"logging": false,
+		"dialect": "sqlite",
+		"storage": "db.sqlite"
+	},
+
+	"logs": {
+		"level": "data",
+		"levels": { 
+			"fail": 0,
+			"core": 1,
+			"user": 2,
+			"test": 3,
+			"data": 4 
+		},
+		"colors": {
+			"fail": "red",
+			"core": "green",
+			"user": "blue",
+			"test": "yellow",
+			"data": "grey"
+		},
+		// post logs in a test server
+		"channel": "CHANNEL_ID_HERE"
+	}
+}
