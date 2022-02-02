@@ -1,6 +1,6 @@
 // Record Updated Channels
 
 module.exports = async (Maui, Channel) => {
-	let server = Maui.serverInfo(Channel.guild)
-	if (server) await Maui.$Servers.set(Channel.guild, server)
+	let details = Maui.serverInfo(Channel.guild)
+	if (details) await Maui.$Servers.set(Channel.guild, details)
 }

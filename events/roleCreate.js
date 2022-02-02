@@ -1,6 +1,6 @@
 // Record New Roles
 
 module.exports = async (Maui, Role) => {
-	let server = Maui.serverInfo(Role.guild)
-	if (server) await Maui.$Servers.set(Role.guild, server)
+	let details = Maui.serverInfo(Role.guild)
+	if (details) await Maui.$Servers.set(Role.guild, details)
 }

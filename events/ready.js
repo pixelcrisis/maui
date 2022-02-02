@@ -8,7 +8,7 @@ module.exports = async Maui => {
 	Maui.Log(`Waiting For Discord...`)
 	await Maui.wait(1000)
 
-	Maui.startPulse()
+	Maui.Loop()
 	Maui.ready = true
 	Maui.Note(`Booted - v${ Maui.info.version }`)
 	
