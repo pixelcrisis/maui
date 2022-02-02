@@ -35,7 +35,7 @@ module.exports = (Self, Types) => {
 		let found = await this.table.findOne(query)
 		if (!found) found = await this.new(user)
 		let saved = await this.table.update(data, query)
-		Self.$log(`Updated Memeber: ${user}`, data, !saved)
+		Self.$log(`Updated Member: ${user}`, data, !saved)
 		return Self.$send(saved ? data : false)
 	}
 

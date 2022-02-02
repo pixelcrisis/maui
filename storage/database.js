@@ -17,6 +17,7 @@ module.exports = Self => {
 	require('./$configs.js')(Self, DataTypes)
 	require('./$servers.js')(Self, DataTypes)
 	require('./$members.js')(Self, DataTypes)
+	require('./$starred.js')(Self, DataTypes)
 
 	// Syncing Our Tables (Updating)
 	Self.$Sync = async function () {
@@ -24,5 +25,6 @@ module.exports = Self => {
 		await this.$configs.table.sync({ alter: true })
 		await this.$servers.table.sync({ alter: true })
 		await this.$members.table.sync({ alter: true })
+		await this.$starred.table.sync({ alter: true })
 	}
 }

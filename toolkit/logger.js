@@ -54,7 +54,6 @@ module.exports = (Self, filename = 'Maui.log') => {
 			if (text.stack) this.Log(text.stack, type)
 		}
 
-		let Reply = this.Reply(data, post)
-		return Reply.send()
+		return this.Reply(data, post)
 	}
 }
