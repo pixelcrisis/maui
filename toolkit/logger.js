@@ -47,7 +47,7 @@ module.exports = (Self, filename = 'Maui.log') => {
 		let post = { head: name || '', desc: text.stack || text }
 
 		// Add Ping/Formatting For Errors
-		if (type == "warn") {
+		if (type == "fail") {
 			Data.color = '0xFF0000'
 			post.desc = "```" + post.desc + "```"
 			post.text = `<@${this.auth.authors.join('><@')}>`
