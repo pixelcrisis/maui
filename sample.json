@@ -39,7 +39,6 @@
 			"test": "yellow",
 			"data": "grey"
 		},
-		// post logs in a test server
 		"channel": "CHANNEL_ID_HERE"
 	}
 }
