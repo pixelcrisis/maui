@@ -37,6 +37,8 @@ module.exports = (Self, filename = 'Maui.log') => {
 	Self.Note = function (text, name, type = "core") {
 		// Also Actually Log Them
 		this.Log(name || text, type)
+		if (text.stack) this.Log(text.stack, type)
+		else if (name) this.Log(text, type)
 		// Ignore If We Aren't A Bot
 		if (!this || !this.ready) return
 		// Or If We Can't Find The Channel
@@ -52,6 +54,7 @@ module.exports = (Self, filename = 'Maui.log') => {
 			post.desc = "```" + post.desc + "```"
 			post.text = `<@${this.auth.authors.join('><@')}>`
 			if (text.stack) this.Log(text.stack, type)
+			else if (name) this.Log(text, type)
 		}
 
 		return this.Reply(data, post)

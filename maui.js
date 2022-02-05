@@ -41,7 +41,6 @@ const init = async () => {
 
 	Maui.Log(`Binding Events...`)
 	let events = await Load('./events')
-	console.log(events)
 	for (let file of events) {
 		Maui.on(file.name, file.src.bind(null, Maui))
 	}
