@@ -14,7 +14,7 @@ module.exports = Maui => {
 	Maui.Reply = async function (Msg, data, values) {
 		let sent, response = this.response(Msg, data, values)
 		if (response) for (var i = 0; i < response.length; i++) {
-			sent = await Msg.channel.send(...response[i])
+			sent = await Msg.channel.send(response[i])
 		}
 		return sent
 	}

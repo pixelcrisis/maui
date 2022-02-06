@@ -3,7 +3,7 @@
 module.exports = Maui => {
 
 	Maui.serverCount = function () {
-		return this.guilds.cache.keyArray().length
+		return this.guilds.cache.size
 	}
 	Maui.memberCount = function () {
 		const count = (count, guild) => count + guild.memberCount

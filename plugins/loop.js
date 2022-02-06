@@ -6,7 +6,7 @@ module.exports = Maui => {
 		if (!this.looping) {
 			this.Log(`Starting Loop.`)
 			const timing = 1000 * 60 * 2 // 2 Minutes
-			this.looping = setInterval(this.Loop, timing)
+			this.looping = setInterval(this.Loop.bind(this), timing)
 		}
 
 		this.Log(`Running Loop.`)

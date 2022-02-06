@@ -10,6 +10,10 @@ module.exports = async Maui => {
 
 	Maui.Loop()
 	Maui.ready = true
-	Maui.Note(`Booted - v${ Maui.info.version }`)
+
+	Maui.Note([
+		`Total Servers: **${ Maui.serverCount() }**`,
+		`Total Users: **${ Maui.memberCount() }**`
+	].join(' - '), `Booted **v${ Maui.info.version }**`)
 	
 }

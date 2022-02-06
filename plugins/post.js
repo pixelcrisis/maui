@@ -33,17 +33,20 @@ module.exports = Maui => {
 		if (!embed.author.name && !embed.author.icon_url) delete embed.author
 		for (let x in embed) if (Object.keys(embed[x]) < 1) delete embed[x]
 
-		let post = basic ? [ basic, { embed } ] : [{ embed }]
+		let post = { embeds: [ embed ] }
+		if (basic) post.content = basic
+			
 		// Make Sure We Split Lengthy Embeds For Discord Limits
 		if (JSON.stringify(embed).length < 1995) return [ post ]
 		else {
 			let posts = []
 			let split = embed.description.match(/[\s\S]{1,1800}/g)
 			for (let description of split) {
-				let copy = { embed: { ...embed, description } }
+				let copy = { embeds: [ { ...embed, description } ] }
 				// Only Include Basic Message On First
-				if (!posts.length && basic) posts.push([ basic, copy ])
-				else posts.push([ copy ])
+				if (!posts.length && basic) copy.content = basic
+				else copy.content = ''
+				posts.push([ copy ])
 			}
 			return posts
 		}
