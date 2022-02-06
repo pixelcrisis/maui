@@ -21,10 +21,10 @@ module.exports = Self => {
 
 	// Syncing Our Tables (Updating)
 	Self.$Sync = async function () {
-		await this.$records.table.sync({ alter: true })
-		await this.$configs.table.sync({ alter: true })
-		await this.$servers.table.sync({ alter: true })
-		await this.$members.table.sync({ alter: true })
-		await this.$starred.table.sync({ alter: true })
+		await this.$Records.table.sync({ alter: true })
+		await this.$Configs.table.sync({ alter: true })
+		await this.$Servers.table.sync({ alter: true })
+		await this.$Members.table.sync({ alter: true })
+		await this.$Starred.table.sync({ alter: true })
 	}
 }
