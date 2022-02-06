@@ -45,6 +45,18 @@ const init = async () => {
 		Maui.on(file.name, file.src.bind(null, Maui))
 	}
 
+	Maui.Log(`Adding Commands...`)
+	let commands = await Load('./commands')
+	Maui.cmdList = {}
+	Maui.cmdLink = {}
+	for (let file of commands) {
+		let cmd = file.src
+		Maui.cmdList[cmd.name] = cmd
+		if (cmd.also) for (let alias of cmd.also) {
+			Maui.cmdLink[alias] = cmd.name
+		}
+	}
+
 	Maui.Log(`Handling Errors....`)
   process.on('uncaughtException',  err => Maui.Note(err, 'Exception', 'fail'))
   process.on('unhandledRejection', err => Maui.Note(err, 'Rejection', 'fail'))
