@@ -52,7 +52,7 @@ module.exports = Maui => {
 		let eArgs = `[ Args: ${ Msg.args.length }/${ Command.args } ]`
 		let error = false
 
-		if (!Command.hide && !Msg.guild) 						error = eAuth
+		if (!Command.indm && !Msg.guild) 						error = eAuth
 		if ((Command.tags || 0) > Msg.tags.length) 	error = eTags
 		if ((Command.args || 0) > Msg.args.length) 	error = eArgs
 		if (Command.gate > Msg.access.level) 				error = eGate

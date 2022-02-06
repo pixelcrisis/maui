@@ -11,9 +11,9 @@ module.exports = Maui => {
 		let list = []
 		for (let name in this.cmdList) {
 			let Command = this.cmdList[name]
-			let allowed = Command.gate <= Msg.access.level
 			let section = this.$badges[Command.gate].name
-			if (allowed) list.push({ ...Command, section })
+			let visible = Command.gate <= Msg.access.level && !Command.hide
+			if (visible) list.push({ ...Command, section })
 		}
 		return list
 	}
@@ -38,14 +38,17 @@ module.exports = Maui => {
 		if (!flag && !Msg.args.length) return false
 
 		let name = flag || [ ...Msg.args ].shift().toLowerCase()
-		let subC = this.findCommand(`${ Command.name }-${ name }`)
+		let subC = this.hasCommand(`${ Command.name }-${ name }`)
 		if (subC && !flag) Msg.args.shift()
 		return subC
 	}
 
 	Maui.logCommand = function (Msg, error) {
-		let where = Msg.guild ? Msg.guild.name : 'DM'
-		this.Log(`<${ where }> ${ Msg.trigger } ${ error || Msg.content }`)
+		let name = Msg.trigger
+		let text = error || Msg.content
+		let type = Msg.tests ? 'test' : 'user'
+		let auth = Msg.guild ? Msg.guild.name : 'DM'
+		this.Log(`<${ auth }> ${ name } ${ text }`, type)
 	}
 
 	Maui.cmdHelp = function (Msg, Command) {
@@ -61,7 +64,7 @@ module.exports = Maui => {
 			help.grid = [{ text: `*Also Works:* ${ alias }` }]
 		}
 
-		return this.replyDM(Msg, post)
+		return this.Reply(Msg, help)
 	}
 
 }

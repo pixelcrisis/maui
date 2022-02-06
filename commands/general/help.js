@@ -8,8 +8,7 @@ module.exports = {
 		desc: [
 			"Without `command`, returns general help.",
 			"Optionally pass a `command` to view the help block for that command.",
-			"{{ m!help }}",
-			"{{ m!help help }}"
+			"{{ m!help }}{{ m!help help }}"
 		]
 	},
 
@@ -39,7 +38,14 @@ module.exports = {
 			Command = Maui.getCommand(Msg, `${ Command.name }-${ sub }`)
 		}
 
-		return Command ? Maui.Reply(Msg, Command) : false
+		return Command ? Maui.cmdHelp(Msg, Command) : false
+	},
+
+	test: async function (Maui, Msg) {
+		await Maui.testCommand(Msg, this.name)
+		await Maui.testCommand(Msg, this.name, 'help')
+		Maui.Reply(Msg, `Expected: General Help, Command Help`)
+		return true
 	}
 
 }
