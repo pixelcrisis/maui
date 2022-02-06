@@ -14,7 +14,7 @@ module.exports = Maui => {
 	Maui.getAccess = async function (Msg) {
 		let badge = this.$badges[1]
 		if (this.isMod(Msg)) badge = this.$badges[2]
-		if (Msg.member.hasPermission('ADMINISTRATOR')) badge = this.$badges[3]
+		if (Msg.member.permissions.has('ADMINISTRATOR')) badge = this.$badges[3]
 		if (Msg.member.id == Msg.guild.ownerID) badge = this.$badges[4]
 		if (this.auth.authors.includes(Msg.member.id)) badge = this.$badges[5]
 		return badge
@@ -31,6 +31,7 @@ module.exports = Maui => {
 
 	Maui.isMod = function (Msg, User) {
 		// Find Defined Mods
+		if (!User) User = Msg.member
 		let check = User._roles.includes
 		let staff = this.$list(Msg.config.staff)
 		for (let id of staff) if (check(id)) return true

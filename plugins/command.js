@@ -18,8 +18,8 @@ module.exports = Maui => {
 		return list
 	}
 
-	Maui.getCommand = function (Msg) {
-		let trigger = Msg.trigger.split('.')[0]
+	Maui.getCommand = function (Msg, name) {
+		let trigger = name || Msg.trigger.split('.')[0]
 		let Command = this.hasCommand(trigger)
 		if (!Command) return false
 

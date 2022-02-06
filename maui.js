@@ -8,20 +8,22 @@ const Load = require('./toolkit/loader.js')
 
 // Set up Discord Connection
 const Discord = require('discord.js')
-const intents = [ 
-  Discord.Intents.FLAGS.GUILDS,
-  Discord.Intents.FLAGS.GUILD_MEMBERS,
-  Discord.Intents.FLAGS.GUILD_PRESENCES
-]
 
 // Async Start For Loader
 const init = async () => {
 	const Maui = new Discord.Client({
-		intents: new Discord.Intents(intents)
+		partials: [ 'MESSAGE', 'CHANNEL', 'REACTION' ],
+		intents: new Discord.Intents([ 
+		  Discord.Intents.FLAGS.GUILDS,
+		  Discord.Intents.FLAGS.GUILD_MEMBERS,
+		  Discord.Intents.FLAGS.GUILD_MESSAGES,
+		  Discord.Intents.FLAGS.GUILD_PRESENCES
+		])
 	})
 
 	// Start Our Maui Build
 	Maui.info = require('./package.json')
+	Maui._ENG = require('./strings.json')
 
 	// Add Exec and a Sleep() Clone
 	Maui.exec = require('child_process').exec

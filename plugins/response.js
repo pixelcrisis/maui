@@ -20,11 +20,11 @@ module.exports = Maui => {
 	}
 
 	Maui.replyDM = async function (Msg, data, values) {
-		if (!Msg.deleted) Msg.react('☑️')
+		Msg.react('☑️')
 		let err = () => this.Log(`DM: Couldn't Send Message`)
 		let sent, response = this.response(Msg, data, values)
 		if (response) for (var i = 0; i < response.length; i++) {
-			sent = await Msg.author.send(...response[i]).catch(err)
+			sent = await Msg.author.send(response[i]).catch(err)
 		}
 		return sent
 	}
@@ -33,7 +33,7 @@ module.exports = Maui => {
 		let flashed = await this.Reply(Msg, data, values)
 		if (!Msg.guild || Msg.tests) return
 		await this.wait(length * 1000)
-		if (flashed && !flashed.deleted) return flashed.delete()
+		if (flashed) return flashed.delete()
 	}
 
 	Maui.replyClean = async function (Msg, data, values, length = 5) {

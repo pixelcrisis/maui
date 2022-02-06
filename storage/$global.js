@@ -54,7 +54,7 @@ module.exports = Self => {
 			for (let item of data) list.push(this.$make(item))
 			return list.length ? list : false
 		} 
-		else this.$make(data)
+		else return this.$make(data)
 	}
 
 	Self.$make = function (data) {

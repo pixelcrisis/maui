@@ -1,0 +1,11 @@
+{
+	"greetings": [
+		"Hi", "Hey", "Hello", "Yo", "Ahoy", "Hiya"
+	],
+
+	"links": {
+		"invite": "https://discord.com/oauth2/authorize/?permissions=83968&scope=bot&client_id=939653792826290186",
+		"discord": "https://discord.gg/ZprHwNUw8y",
+		"website": "https://github.com/pixelcrisis/maui"
+	}
+}

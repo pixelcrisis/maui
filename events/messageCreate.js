@@ -37,8 +37,8 @@ module.exports = async (Maui, Msg) => {
 	Msg.trigger = trigger
 	Msg.content = content.join(' ')
 	// Attach Configs, Get Command Access
-	Msg.access = await Maui.getAccess(Msg)
 	Msg.config = configs
+	Msg.access = await Maui.getAccess(Msg)
 
 	// Get Arguments, Tags
 	Msg.tags = Msg.content.split('-').map(s => s.trim())

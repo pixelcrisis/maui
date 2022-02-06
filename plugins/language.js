@@ -16,6 +16,12 @@ module.exports = Maui => {
 			{ from: "{_}", 	to: "\u200b" },
 			{ from: "{nl}", to: "\n\u200b" },
 
+			{ from: "{ver}",		to: `v${ this.info.version }` },
+			{ from: "{hello}",	to: this.$rand(this._ENG.greetings) },
+			{ from: "{invite}", to: `[Invite Maui](${ this._ENG.links.invite })` },
+			{ from: "{website}", to: `[Website](${ this._ENG.links.website })` },
+			{ from: "{discord}", to: `[Support Server](${ this._ENG.links.discord })` },
+
 			{ from: "m!", 			to: Msg.prefix || "m!" },
 			{ from: "{me}", 		to: `<@${ this.user.id }>` },
 			{ from: "{users}", 	to: this.memberCount() },
