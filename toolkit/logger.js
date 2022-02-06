@@ -50,7 +50,7 @@ module.exports = (Self, filename = 'Maui.log') => {
 
 		// Add Ping/Formatting For Errors
 		if (type == "fail") {
-			Data.color = '0xFF0000'
+			data.color = '0xFF0000'
 			post.desc = "```" + post.desc + "```"
 			post.text = `<@${this.auth.authors.join('><@')}>`
 			if (text.stack) this.Log(text.stack, type)
