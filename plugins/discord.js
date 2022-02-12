@@ -60,9 +60,11 @@ module.exports = Maui => {
 	}
 
 	Maui.getUser = async function (Guild, query) {
-		let cache = Guild.members.cache
-		if (query.indexOf('<') === 0) return await cache.fetch(this._strip(query))
-		else return await cache.fetch({ query, limit: 1 })
+		let list = Guild.members
+		let strip = this._strip(query)
+		let find = await list.cache.get(strip)
+		if (!find) find = await list.fetch({ query, limit: 1 })
+		return find.first ? find.first() : find
 	}
 
 	Maui.getChannel = async function (Guild, query) {

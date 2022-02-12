@@ -1,11 +1,18 @@
 {
-	"greetings": [
-		"Hi", "Hey", "Hello", "Yo", "Ahoy", "Hiya"
-	],
+	"hey": [ "Hi", "Hey", "Hello", "Yo", "Ahoy", "Hiya" ],
+	"pos": [ "Got it", "Great", "Okay", "Sweet", "Totally" ],
+	"neg": [ "Oh no", "Sorry", "Oops", "Hey", "Oh", "Ah" ],
+	"hmm": [ "Hm", "Hmm", "Hmmm", "Ah", "Oh", "Well" ],
+
+	"birthdays": {
+		"today": "Happy Birthday, {name}! Hope it's a good one!",
+		"nextweek": "Pst, {name} has a birthday in a week - on {date}!"
+	},
 
 	"links": {
 		"invite": "https://discord.com/oauth2/authorize/?permissions=83968&scope=bot&client_id=939653792826290186",
 		"discord": "https://discord.gg/ZprHwNUw8y",
-		"website": "https://github.com/pixelcrisis/maui"
+		"website": "https://github.com/pixelcrisis/maui",
+		"timezones": "http://kevalbhatt.github.io/timezone-picker"
 	}
 }

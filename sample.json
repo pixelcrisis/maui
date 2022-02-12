@@ -10,10 +10,6 @@
 		"starboard": {
 			"emoji": "⭐",
 			"count": 2
-		},
-		"birthdays": {
-			"today": "Happy Birthday, {name}! Hope it's a good one!",
-			"nextweek": "Pst, {name} has a birthday in a week - on {date}!"
 		}
 	},
 

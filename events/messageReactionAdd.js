@@ -21,6 +21,6 @@ module.exports = async (Maui, React) => {
 	React.empty = !embed && !files.size && !origin.content
 
 	// Fire Our Reaction Based Checks
-	if (origin.guild) Maui.getStarboard(React)
+	// if (origin.guild) Maui.getStarboard(React)
 	
 }

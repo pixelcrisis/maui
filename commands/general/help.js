@@ -13,7 +13,7 @@ module.exports = {
 	},
 
 	post: {
-		head: "{hello}, I'm **Maui!**",
+		head: "{hey}, I'm **Maui!**",
 		desc: [
 			"I track user timezones so you know what time it is for other members!",
 			"",
@@ -47,5 +47,4 @@ module.exports = {
 		Maui.Reply(Msg, `Expected: General Help, Command Help`)
 		return true
 	}
-
 }

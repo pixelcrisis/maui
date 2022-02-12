@@ -17,17 +17,22 @@ module.exports = Maui => {
 			{ from: "{nl}", to: "\n\u200b" },
 
 			{ from: "{ver}",		to: `v${ this.info.version }` },
-			{ from: "{hello}",	to: this.$rand(this._ENG.greetings) },
 			{ from: "{invite}", to: `[Invite Maui](${ this._ENG.links.invite })` },
 			{ from: "{website}", to: `[Website](${ this._ENG.links.website })` },
 			{ from: "{discord}", to: `[Support Server](${ this._ENG.links.discord })` },
+			{ from: "{timezone}", to: `[Timezone Finder](${ this._ENG.links.timezones })` },
+			
+			{ from: "{hey}",	to: this._rand(this._ENG.hey) },
+			{ from: "{hmm}",	to: this._rand(this._ENG.hmm) },
+			{ from: "{yay}",	to: this._rand(this._ENG.pos) },
+			{ from: "{nay}",	to: this._rand(this._ENG.neg) },
 
 			{ from: "m!", 			to: Msg.prefix || "m!" },
 			{ from: "{me}", 		to: `<@${ this.user.id }>` },
 			{ from: "{users}", 	to: this.memberCount() },
 			{ from: "{guilds}", to: this.serverCount() },
 
-			{ from: "{guild}",	 	to: Msg.guild ? Msg.guild.name : '' },
+			{ from: "{guild}",	 	to: Msg.guild ? `**${ Msg.guild.name }**` : '' },
 			{ from: "{g.id}", 		to: Msg.guild ? Msg.guild.id : '' },
 			{ from: "{g.count}", 	to: Msg.guild ? Msg.guild.memberCount : '' },
 			{ from: "{g.owner}", 	to: Msg.guild ? `<@${ Msg.guild.ownerID }>` : '' },

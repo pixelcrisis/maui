@@ -21,11 +21,10 @@ module.exports = Maui => {
 	}
 
 	// Check If User Has Given Role
-	Maui.checkRole = function (User, list) {
+	Maui.checkRole = function (User, list = []) {
 		let value = false
-		let roles = this.$list(list)
 		let check = User._roles.includes
-		for (let role of roles) if (check(role)) value = true
+		for (let role of list) if (check(role)) value = true
 		return value
 	}
 
@@ -33,8 +32,7 @@ module.exports = Maui => {
 		// Find Defined Mods
 		if (!User) User = Msg.member
 		let check = User._roles.includes
-		let staff = this.$list(Msg.config.staff)
-		for (let id of staff) if (check(id)) return true
+		for (let id of Msg.config.staff) if (check(id)) return true
 		// Find Generic Mods
 		let basic = [ "mod", "mods", "moderator", "moderators", "staff" ]
 		let named = role => basic.includes(role.name.toLowerCase())

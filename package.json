@@ -6,8 +6,13 @@
   "author": "pixelcrisis",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "go": "node maui.js"
+  },
   "dependencies": {
     "discord.js": "^13.6.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
     "read-last-lines": "^1.8.0",
     "sequelize": "^6.14.1",
     "sqlite3": "^5.0.2",

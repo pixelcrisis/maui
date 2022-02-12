@@ -21,7 +21,7 @@ module.exports = Maui => {
 		]
 
 		let type = 'WATCHING'
-		let pick = this.$rand(list)
+		let pick = this._rand(list)
 		this.user.setActivity(pick, { type })
 	}
 

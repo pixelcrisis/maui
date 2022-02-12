@@ -12,6 +12,11 @@ module.exports = Self => {
 		return a.toLowerCase().indexOf(b.toLowerCase())
 	}
 
+	Self._rand = function (arr) {
+		let rand = Math.floor(Math.random() * arr.length)
+		return arr[rand]
+	}
+
 	Self._keyVal = function (arr) {
 		return [ arr.shift().toLowerCase(), arr.join(' ') ]
 	}

@@ -42,5 +42,4 @@ module.exports = {
 
 		Maui.Reply(Msg, this.lang.end, { total })
 	}
-
 }

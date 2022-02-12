@@ -10,23 +10,23 @@ module.exports = (Self, Types) => {
 		})
 	}
 
+	let Unpack = Self.$unpack
+
 	Records.get = async function () {
 		let query = { where: this.index }
 		let found = await this.table.findOne(query)
-		return found ? Self.$send(found) : this.new()
-	}
+		if (found) return Unpack(found)
 
-	Records.new = async function () {
-		let fresh = await this.table.create(this.index)
-		Self.$log(`Created Records`, fresh)
-		return Self.$send(fresh)
+		let saved = await this.table.create(this.index)
+		Self.$log(`Created Bot Records`, saved)
+		return Unpack(saved)
 	}
 
 	Records.set = async function (data) {
 		let query = { where: this.index }
 		let saved = await this.table.update(data, query)
 		Self.$log(`Updated Records`, data, !saved)
-		return Self.$send(saved ? data : false)
+		return Unpack(saved ? data : false)
 	}
 
 	Self.$Records = Records
