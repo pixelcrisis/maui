@@ -8,8 +8,9 @@ module.exports = {
 		head: "m!z [timezone]",
 		desc: [
 			"Sets your timezone to `timezone`.",
-			"Timezone is the nearest *time city* to you. For the US, it's usually *Los Angeles*, *Denver*, *Chicago*, and *New York*. If you're unsure what to input, you can visit this link and click on yourself on the map: {timezone}",
-			"{{ m!timezone Chicago }}{{ m!z Syndey }}{{ m!z London }}"
+			"Timezone is the nearest *time city* to you. For the US, it's usually *Los Angeles*, *Denver*, *Chicago*, and *New York*.",
+			"{{ m!z Syndey }}{{ m!z London }}{{ m!timezone Chicago }}",
+			"If you're unsure what to input, you can visit this link and click on yourself on the map: {timezone}"
 		]
 	},
 

@@ -5,12 +5,12 @@ module.exports = {
 
 	help: {
 		head: "m!commands",
-		desc: "Lists the commands you have acces to."
+		desc: "Lists the commands you have access to."
 	},
 
 	post: {
 		head: "Maui Commands ({perm})",
-		desc: "Below is a list of all the commands you have acces to.",
+		desc: "Below is a list of all the commands you have access to.",
 		grid: []
 	},
 
