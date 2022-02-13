@@ -10,7 +10,7 @@
 	},
 
 	"links": {
-		"invite": "https://discord.com/oauth2/authorize/?permissions=83968&scope=bot&client_id=939653792826290186",
+		"invite": "https://discord.com/api/oauth2/authorize?client_id=942252649141637132&permissions=277025770560&scope=bot",
 		"discord": "https://discord.gg/ZprHwNUw8y",
 		"website": "https://github.com/pixelcrisis/maui",
 		"timezones": "http://kevalbhatt.github.io/timezone-picker"
