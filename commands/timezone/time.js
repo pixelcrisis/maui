@@ -22,10 +22,14 @@ module.exports = {
 
 	fire: async function (Maui, Msg) {
 		let list = await Maui.$Timezone.all(Msg.guild.id)
-		if (!list || !list.length) return Maui.Reply(Msg, this.lang.none)
+		if (!list || !list.length) {
+			return Msg.auto ? false : Maui.Reply(Msg, this.lang.none)
+		}
 
 		let self = list.filter(m => m.user == Msg.author.id)[0]
-		if (!self) return Maui.Reply(Msg, this.lang.zone)
+		if (!self) {
+			return Msg.auto ? false : Maui.Reply(Msg, this.lang.zone)
+		}
 
 		let time = false, data = {}
 		let name = self.zone.split('/')[1].split('_').join(' ')

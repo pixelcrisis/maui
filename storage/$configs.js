@@ -8,7 +8,9 @@ module.exports = (Self, Types) => {
 			prefix: { type: Types.STRING, defaultValue: Self.base.prefix },
 			staff: 	{ type: Types.TEXT, 	defaultValue: '[]' },
 
-			s_board: 	{ type: Types.STRING },
+			autotime: { type: Types.BOOLEAN, defaultValue: false },
+
+			s_board: 	{ type: Types.STRING, defaultValue: '' },
 			s_emoji: 	{ type: Types.STRING, defaultValue: Self.base.starboard.emoji },
 			s_count: 	{ type: Types.STRING, defaultValue: Self.base.starboard.count },
 

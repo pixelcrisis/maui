@@ -27,18 +27,19 @@ module.exports = async (Maui, Msg) => {
 	let prefix = configs ? configs.prefix : Maui.base.prefix
 	if (prefix.length > trigger.length) prefixed = false
 	else if (Maui._holds(trigger, prefix) === 0) prefixed = true
+	
+	// Attach Configs, Get Command Access
+	Msg.config = configs
+	Msg.access = await Maui.getAccess(Msg)
 
 	// Return If No Prefix Or Mention
-	if (!pinged && !prefixed) return
+	if (!pinged && !prefixed) return Maui.autoTime(Msg)
 
 	// If Prefixed, Removed From Trigger
 	if (prefixed) trigger = trigger.split(prefix).join('')
 
 	Msg.trigger = trigger
 	Msg.content = content.join(' ')
-	// Attach Configs, Get Command Access
-	Msg.config = configs
-	Msg.access = await Maui.getAccess(Msg)
 
 	// Get Arguments, Tags
 	Msg.tags = Msg.content.split('-').map(s => s.trim())

@@ -13,6 +13,17 @@ module.exports = Maui => {
 	Maui.diffTime = (a, b) => Math.ceil(a.diff(b, 'days', true))
 	Maui.getDate = (date, format) => Moment(date, format || 'MM/DD/YYYY')
 
+	Maui.autoTime = function (Msg) {
+		if (!Msg.config || !Msg.config.autotime) return false
+		let time = this.cmdList.time
+		let text = Msg.content.split(' ')
+		for (let word of text) if (this.isTime(word)) {
+			Msg.args = [ word ]
+			Msg.auto = true
+		}
+		return Msg.auto ? time.fire(this, Msg) : false
+	}
+
 	Maui.timeIn = function (zone, tz) {
 		let data = tz ? tz.tz(zone) : TZ(zone)
 		let name = zone.split('/')[1].split('_').join(' ')

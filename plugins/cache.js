@@ -10,7 +10,7 @@ module.exports = Maui => {
 		if (!data) return has
 	
 		has = { ...has, ...data }
-		this.$Configs.set(id, has)
+		this.$Configs.set(id, this.$pack(has))
 		return has
 	}
 

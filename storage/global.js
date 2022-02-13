@@ -21,6 +21,14 @@ module.exports = Self => {
 		catch (e) { return arr }
 	}
 
+	// Pack A Data Object (Arrays)
+	Self.$pack = function (data) {
+		for (let prop in data) if (Array.isArray(data[prop])) {
+			data[prop] = JSON.stringify(data[prop])
+		}
+		return data
+	}
+
 	// Unpack Database Data
 	Self.$unpack = function (data, list = []) {
 		if (!Array.isArray(data)) return Self.$filter(data)

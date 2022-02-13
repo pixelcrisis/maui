@@ -1,6 +1,6 @@
 module.exports = {
-	name: "zone",
-	also: [ "timezone", "z" ],
+	name: "timezone",
+	also: [ "zone", "z" ],
 	gate: 1,
 	args: 1,
 

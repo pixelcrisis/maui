@@ -15,7 +15,7 @@ module.exports = {
 	},
 
 	lang: {
-		prefix: "**{guild} Prefix:** `m!`",
+		prefix: "**Prefix** for {guild}: `m!`",
 		footer: "Use `m!help command` for more info."
 	},
 
