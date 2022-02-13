@@ -2,6 +2,7 @@
 
 module.exports = async (Maui, Guild) => {
 	let title = `Added to ${ Guild.name }`
+  let Owner = await Bot.users.fetch(Guild.ownerID)
 	let stats = [
 		`Total Users: **${ Guild.memberCount }**`,
 		`Server Owner: **${ Owner.username }**`,
