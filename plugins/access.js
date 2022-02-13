@@ -31,7 +31,7 @@ module.exports = Maui => {
 	Maui.isMod = function (Msg, User) {
 		// Find Defined Mods
 		if (!User) User = Msg.member
-		let check = User._roles.includes
+		let check = id => User._roles.indexOf(id) > -1
 		for (let id of Msg.config.staff) if (check(id)) return true
 		// Find Generic Mods
 		let basic = [ "mod", "mods", "moderator", "moderators", "staff" ]
