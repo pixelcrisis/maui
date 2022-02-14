@@ -21,6 +21,7 @@ module.exports = Maui => {
 			{ from: "{website}", to: `[Website](${ this._ENG.links.website })` },
 			{ from: "{discord}", to: `[Support Server](${ this._ENG.links.discord })` },
 			{ from: "{timezone}", to: `[Timezone Finder](${ this._ENG.links.timezones })` },
+			{ from: "{embedgen}", to: `[Embed Generator](${ this._ENG.links.embedgen })` },
 			
 			{ from: "{hey}",	to: this._rand(this._ENG.hey) },
 			{ from: "{hmm}",	to: this._rand(this._ENG.hmm) },
