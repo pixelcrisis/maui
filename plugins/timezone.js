@@ -1,7 +1,8 @@
 // We Can Manage Time
 
 const Moment = require('moment')
-const TZ = require('moment-timezone').tz
+const Cities = require('city-timezones')
+const TimeZone = require('moment-timezone').tz
 
 module.exports = Maui => {
 
@@ -25,7 +26,7 @@ module.exports = Maui => {
 	}
 
 	Maui.timeIn = function (zone, tz) {
-		let data = tz ? tz.tz(zone) : TZ(zone)
+		let data = tz ? tz.tz(zone) : TimeZone(zone)
 		let name = zone.split('/')[1].split('_').join(' ')
 		let time = data.format('h:mm A')
 		return { ...data, name, time }
@@ -43,24 +44,20 @@ module.exports = Maui => {
 	}
 
 	Maui.getZone = function (str) {
-		let name = str.split(' ').join('_').toLowerCase()
-		if (name.indexOf('/') > 0) return TZ.zone(name)
-		for (let place of this.__zones) {
-			let zone = TZ.zone(`${ place }/${ name }`)
-			if (zone) return zone
-		}
-		return false
+		let find = Cities.lookupViaCity(str)
+		if (!find.length) return false
+		return find[0].timezone
 	}
 
 	Maui.checkTime = function (str, zone) {
 		let time = this.isTime(str)
 		if (!time) return false
 
-		let date = TZ(zone).format('YYYY-MM-DD')
+		let date = TimeZone(zone).format('YYYY-MM-DD')
 		let hour = time[1], mins = time[2] || ":00"
 		let ampm = time[3].toUpperCase()
 		let data = `${ date } ${ hour }${ mins } ${ ampm }`
-		return TZ(data, 'YYYY-MM-DD h:mm A', zone)
+		return TimeZone(data, 'YYYY-MM-DD h:mm A', zone)
 	}
 
 }

@@ -16,7 +16,7 @@ module.exports = {
 
 	lang: {
 		none: "{nay}, I couldn't find the timezone `{opts}`",
-		done: "{yay}, I've set your timezone to `{opts}`",
+		done: "{yay}, I've set your timezone to `{zone}`",
 		fail: "{hmm}, something went wrong saving your data."
 	},
 
@@ -25,12 +25,10 @@ module.exports = {
 		if (!zone) return Maui.Reply(Msg, this.lang.none)
 
 		let update = await Maui.$Timezone.set({
-			user: Msg.author.id, 
-			guild: Msg.guild.id, 
-			zone: zone.name
+			user: Msg.author.id, guild: Msg.guild.id, zone
 		})
 
-		if (update) return Maui.Reply(Msg, this.lang.done)
+		if (update) return Maui.Reply(Msg, this.lang.done, { zone })
 		else return Maui.Reply(Msg, this.lang.fail)
 	},
 

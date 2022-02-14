@@ -10,6 +10,7 @@
     "go": "node maui.js"
   },
   "dependencies": {
+    "city-timezones": "^1.2.0",
     "discord.js": "^13.6.0",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.34",
