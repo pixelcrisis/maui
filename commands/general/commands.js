@@ -38,21 +38,23 @@ module.exports = {
 	},
 
 	test: async function (Maui, Msg) {
-		await Maui.testCommand(Msg, this.name)
+		Msg.trigger = this.name 
 
 		Msg.access = Maui.$badges[1]
-		await Maui.testCommand(Msg, this.name)
+		await Maui.runTest(Msg, '', 'User Commands')
 
 		Msg.access = Maui.$badges[2]
-		await Maui.testCommand(Msg, this.name)
+		await Maui.runTest(Msg, '', 'Mod Commands')
+
+		Msg.access = Maui.$badges[3]
+		await Maui.runTest(Msg, '', 'Admin Commands')
 
 		Msg.access = Maui.$badges[4]
-		await Maui.testCommand(Msg, this.name)
+		await Maui.runTest(Msg, '', 'Owner Commands')
 
 		Msg.access = Maui.$badges[5]
-		await Maui.testCommand(Msg, this.name)
-
-		Maui.Reply(Msg, `Expected: 5 Varying Help Screens`)
+		await Maui.runTest(Msg, '', 'Author Commands')
+		
 		return true
 	}
 }

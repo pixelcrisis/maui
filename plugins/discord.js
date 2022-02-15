@@ -82,10 +82,10 @@ module.exports = Maui => {
 		return found || await cache.find(named)
 	}
 
-	Maui.isEmbed = function (str) {
+	Maui.getEmbed = function (str) {
 		try {
 			let embed = JSON.parse(str)
-			return embed.embed ? embed : { embed }
+			return embed.embed ? embed.embed : embed
 		} catch(e) { 
 			return false 
 		}

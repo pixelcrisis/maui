@@ -42,9 +42,9 @@ module.exports = {
 	},
 
 	test: async function (Maui, Msg) {
-		await Maui.testCommand(Msg, this.name)
-		await Maui.testCommand(Msg, this.name, 'help')
-		Maui.Reply(Msg, `Expected: General Help, Command Help`)
+		Msg.trigger = this.name
+		await Maui.runTest(Msg, '', 'General Help')
+		await Maui.runTest(Msg, 'help', "Help's Help")
 		return true
 	}
 }

@@ -22,9 +22,9 @@ module.exports = {
 	},
 
 	test: async function (Maui, Msg) {
-		await Maui.testCommand(Msg, this.name)
-		await Maui.testCommand(Msg, this.name)
-		Maui.Reply(Msg, `Toggle, Toggle`)
+		Msg.trigger = this.name
+		await Maui.runTest(Msg, '', 'Toggle')
+		await Maui.runTest(Msg, 'abc', 'Toggle')
 		return true
 	}
 }

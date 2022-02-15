@@ -1,0 +1,41 @@
+module.exports = {
+	name: "post",
+	also: [ "embed", "bulletin" ],
+	gate: 2,
+	args: 1,
+
+	help: {
+		head: "m!post [embed]",
+		desc: [
+			"Prints a bulletin (embed) in current channel.",
+			'{{ m!post { "title": "Hello World!" } }}',
+			"You can use an {embedgen} to help quickly make your own."
+		]
+	},
+
+	lang: {
+		fail: "{nay}, that embed didn't parse properly!"
+	},
+
+	fire: async function (Maui, Msg) {
+		let post = Maui.getEmbed(Msg.content)
+		if (!post) return Maui.Reply(Msg, this.lang.fail)
+
+		let send = { embeds: [ post ], content: post.content}
+		let sent = await Msg.channel.send(send)
+		await Maui.cleanMessage(Msg)
+		return sent
+	},
+
+	test: async function (Maui, Msg) {
+		Msg.trigger = this.name
+
+		let str1 = `{ "title": "Hello!" }`
+		let str2 = `{ "title": "Hello!", "content": "Content!" }`
+		let str3 = `{ thing: "Hello }`
+		await Maui.runTest(Msg, str1, "Hello!")
+		await Maui.runTest(Msg, str2, "Hello! Content!")
+		await Maui.runTest(Msg, str3, "Fail: Embed")
+		return true
+	}
+}
