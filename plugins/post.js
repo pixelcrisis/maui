@@ -2,10 +2,16 @@
 
 module.exports = Maui => {
 
+	Maui.postColor = function (Msg) {
+		if (Msg.color) return Msg.color
+		if (Msg.config && Msg.config.color) return Msg.config.color
+		return this.base.color
+	}
+
 	Maui.Post = function (Msg, data, values) {
 		// Get Plaintext Message, Define Empty Post Object
 		let basic = data.text ? this.Parse(Msg, data.text, values) : false
-		let embed = { author: {}, fields: [], color: Msg.color || this.base.color }
+		let embed = { author: {}, fields: [], color: this.postColor(Msg) }
 		// Split Descriptions Are Joined With New Lines
 		if (Array.isArray(data.desc)) data.desc = data.desc.join('\n')
 

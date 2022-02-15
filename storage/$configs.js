@@ -7,6 +7,7 @@ module.exports = (Self, Types) => {
 			guild: 	{ type: Types.STRING, unique: true },
 			prefix: { type: Types.STRING, defaultValue: Self.base.prefix },
 			staff: 	{ type: Types.TEXT, 	defaultValue: '[]' },
+			color: 	{ type: Types.STRING, defaultValue: '' },
 
 			autotime: { type: Types.BOOLEAN, defaultValue: false },
 

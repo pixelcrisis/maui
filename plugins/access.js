@@ -34,11 +34,15 @@ module.exports = Maui => {
 		let check = id => User._roles.indexOf(id) > -1
 		for (let id of Msg.config.staff) if (check(id)) return true
 		// Find Generic Mods
+		let found = this.basicMod(Msg)
+		return found ? check(found) : false
+	}
+
+	Maui.basicMod = function (Msg) {
 		let basic = [ "mod", "mods", "moderator", "moderators", "staff" ]
 		let named = role => basic.includes(role.name.toLowerCase())
 		let found = Msg.guild.roles.cache.find(named)
-		if (found && found.id) return check(found.id)
-		else return false
+		return found && found.id ? found.id : false
 	}
 
 	Maui.cmdAccess = function (Msg, Command) {
@@ -56,11 +60,9 @@ module.exports = Maui => {
 		if (Command.gate > Msg.access.level) 				error = eGate
 
 		if ([ eTags, eArgs ].includes(error)) {
-			if (!Msg.tests && !Msg.help) this.getHelp(Msg, Command)
-			else error = false
+			if (!Msg.help) this.getHelp(Msg, Command)
 		}
 
-		if ([ eTags, eArgs ].includes(error)) this.getHelp(Msg, Command)
 		if (error == eAuth) this.replyDM(Msg, error)
 		if (!Msg.help) this.logCommand(Msg, error)
 		return !error
