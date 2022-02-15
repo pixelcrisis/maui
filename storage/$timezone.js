@@ -40,6 +40,13 @@ module.exports = (Self, Types) => {
 		}
 	}
 
+	Timezone.rem = async function (user, guild) {
+		let query = { where: { user, guild } }
+		let wiped = await this.table.destroy(query)
+		Self.$log(`Removed Timezone: ${ guild }`, user, !wiped)
+		return Unpack(wiped ? data : false)
+	}
+
 	Self.$Timezone = Timezone
 
 }
