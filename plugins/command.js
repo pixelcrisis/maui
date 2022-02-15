@@ -19,28 +19,13 @@ module.exports = Maui => {
 	}
 
 	Maui.getCommand = function (Msg, name) {
-		let trigger = name || Msg.trigger.split('.')[0]
+		let trigger = name || Msg.trigger
 		let Command = this.hasCommand(trigger)
 		if (!Command) return false
-
-		// Check For SubCommands
-		let subCommand = this.subCommand(Msg, Command)
-		if (subCommand) Command = subCommand
 
 		// Check For Permissions
 		let allowed = this.cmdAccess(Msg, Command)
 		return allowed ? Command : false
-	}
-
-	Maui.subCommand = function (Msg, Command) {
-		let data = Msg.trigger.split('.')
-		let flag = data.length > 1 ? data[1] : false
-		if (!flag && !Msg.args.length) return false
-
-		let name = flag || [ ...Msg.args ].shift().toLowerCase()
-		let subC = this.hasCommand(`${ Command.name }-${ name }`)
-		if (subC && !flag) Msg.args.shift()
-		return subC
 	}
 
 	Maui.logCommand = function (Msg, error) {
