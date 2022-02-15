@@ -12,7 +12,8 @@ module.exports = {
 		Maui.exec('git pull', async (err, good) => {
 			if (err || !good) return Maui.Reply(Msg, 'Error Updating')
 
-			await Maui.Reply(Msg, `{{ ${ Maui.look(data, { depth: 2 }) } }}`)
+			if (typeof good !== 'string') good = Maui.look(good)
+			await Maui.Reply(Msg, `{{ ${ good } }}`)
 			await Maui.Reply(Msg, `{{ Rebooting... }}`)
 			return Maui.exec('pm2 restart 0')
 		})

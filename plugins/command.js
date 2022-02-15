@@ -51,20 +51,29 @@ module.exports = Maui => {
 		this.Log(`<${ auth }> ${ name } ${ text }`, type)
 	}
 
-	Maui.cmdHelp = function (Msg, Command) {
-		let help = { ...Command.help }
-		let gate = Msg.access.level
+	Maui.getHelp = function (Msg, Command) {
+		let reqs = Command.args || Command.tags
+		let list = Command.also ? Command.also.join("**, **m!") : false
+		
+		let post = this.$copy(Command.help)
+		if (!Array.isArray(post.desc)) post.desc = [ post.desc ]
 
-		if (help.user && gate > 0) help = { ...help.user }
-		if (help.mods && gate > 1) help = { ...help.mods }
-		if (help.conf && gate > 2) help = { ...help.conf }
-
-		if (Command.also) {
-			let alias = "`m!" + [ ...Command.also ].join("`, `m!") + "`"
-			help.grid = [{ text: `*Also Works:* ${ alias }` }]
+		if (list) {
+			let also = `\nAlso Works: **m!${ list }**`
+			post.desc.push(also)
 		}
 
-		return this.Reply(Msg, help)
+		if (reqs) {
+			let rule = []
+			if (!list) post.desc.push('') // spacer
+			let tags = `Required Tags: **${ Command.tags || 0 }**`
+			let args = `Required Args: **${ Command.args || 0 }**`
+			if (Command.args) rule.push(args)
+			if (Command.tags) rule.push(tags)
+			post.desc.push(rule.join(' '))
+		}
+
+		return this.Reply(Msg, post)
 	}
 
 }

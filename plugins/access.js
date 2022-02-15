@@ -55,9 +55,14 @@ module.exports = Maui => {
 		if ((Command.args || 0) > Msg.args.length) 	error = eArgs
 		if (Command.gate > Msg.access.level) 				error = eGate
 
-		if ([ eTags, eArgs ].includes(error)) this.cmdHelp(Msg, Command)
+		if ([ eTags, eArgs ].includes(error)) {
+			if (!Msg.tests && !Msg.help) this.getHelp(Msg, Command)
+			else error = false
+		}
+
+		if ([ eTags, eArgs ].includes(error)) this.getHelp(Msg, Command)
 		if (error == eAuth) this.replyDM(Msg, error)
-		this.logCommand(Msg, error)
+		if (!Msg.help) this.logCommand(Msg, error)
 		return !error
 	}
 

@@ -56,6 +56,12 @@ module.exports = Maui => {
 			data = data.split(`{${ key }}`).join(values[key])
 		}
 
+		// Clean Up Code Block Trailing Lines
+		data = data.split('\n```').join('```')
+		data = data.split('```\n').join('```')
+		data = data.split('\n ```').join('```')
+		data = data.split('``` \n').join('```')
+
 		// Unescape Escaped Strings
 		data = data.split("{/").join("{")
 		return data

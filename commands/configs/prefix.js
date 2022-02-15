@@ -6,7 +6,7 @@ module.exports = {
 	help: {
 		head: "m!prefix [prefix]",
 		desc: [
-			"Change the default prefix to `prefix`",
+			"Change the default prefix to **[prefix]**",
 			"{{ m!prefix > }}{{ m!prefix ^ }}"
 		]
 	},

@@ -6,8 +6,8 @@ module.exports = {
 	help: {
 		head: "m!help (command)",
 		desc: [
-			"Without `command`, returns general help.",
-			"Optionally pass a `command` to view the help block for that command.",
+			"Without **(command)**, returns general help.",
+			"Optionally pass a **(command)** to view the help block for that command.",
 			"{{ m!help }}{{ m!help help }}"
 		]
 	},
@@ -15,7 +15,8 @@ module.exports = {
 	post: {
 		head: "{hey}, I'm **Maui!**",
 		desc: [
-			"I track user timezones so you know what time it is for other members!",
+			"I track timezones so you know what time it is for other members!",
+			"I also handle posting embeds (bulletins!) ",
 			"",
 			"`m!time` - displays the times in the server.",
 			"`m!commands` - shows available commands.",
@@ -25,20 +26,17 @@ module.exports = {
 		]
 	},
 
+	lang: {
+		none: "{nay}, `{opts}` doesn't look like a command to me."
+	},
+
 	fire: async function (Maui, Msg) {
-		let base = Maui.$copy(this.post)
-		if (!Msg.args.length) return Maui.Reply(Msg, base)
+		Msg.help = true
+		if (!Msg.args.length) return Maui.Reply(Msg, this.post)
 
-		// split at . and - to find subcommands
-		let temp = Msg.args.join(".").split("-").join(".").split(".")
-		let name = temp.shift().toLowerCase(), sub = temp.join(".")
-
-		let Command = Maui.getCommand(Msg, name)
-		if (Command && sub) {
-			Command = Maui.getCommand(Msg, `${ Command.name }-${ sub }`)
-		}
-
-		return Command ? Maui.cmdHelp(Msg, Command) : false
+		let Command = Maui.getCommand(Msg, Msg.args[0].toLowerCase())
+		if (!Command) return Maui.Reply(Msg, this.lang.none)
+		else return Maui.getHelp(Msg, Command)
 	},
 
 	test: async function (Maui, Msg) {

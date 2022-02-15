@@ -25,10 +25,12 @@ const init = async () => {
 	Maui.info = require('./package.json')
 	Maui._ENG = require('./strings.json')
 
-	// Add Exec, Inspect, and Sleep() Clone
+	// Add Exec and Sleep() Clone
 	Maui.exec = require('child_process').exec
 	Maui.wait = require('util').promisify(setTimeout)
-	Maui.look = require('util').inspect
+	// Add Util Inspect
+	const inspect = require('util').inspect
+	Maui.look = obj => inspect(obj, { depth: 2 })
 	// Add The Relevant Config Sections
 	Maui.auth = require('./config.json').auth
 	Maui.base = require('./config.json').base

@@ -7,9 +7,9 @@ module.exports = {
 	help: {
 		head: "m!post [embed]",
 		desc: [
-			"Prints a bulletin (embed) in current channel.",
-			'{{ m!post { "title": "Hello World!" } }}',
-			"You can use an {embedgen} to help quickly make your own."
+			"Post a discord **[embed]** into the current channel.",
+			"You can use {embedgen} to help quickly make your own!",
+			`{{ m!post { "title": "Hello World!" } }}`
 		]
 	},
 
