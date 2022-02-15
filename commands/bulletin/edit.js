@@ -1,5 +1,6 @@
 module.exports = {
 	name: "edit",
+	also: [ "e" ],
 	gate: 2,
 	args: 2,
 

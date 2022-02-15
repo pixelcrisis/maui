@@ -1,6 +1,6 @@
 module.exports = {
 	name: "post",
-	also: [ "embed", "bulletin" ],
+	also: [ "p", "embed", "bulletin" ],
 	gate: 2,
 	args: 1,
 
