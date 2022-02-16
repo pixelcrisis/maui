@@ -4,11 +4,11 @@ module.exports = {
 	args: 1,
 
 	help: {
-		head: "m!color [#color]",
+		head: "m:color [#color]",
 		desc: [
 			"Sets embed color to **[color]**",
 			"**[color]** should be a 6 digit hex string.",
-			"{{ m!color #ff0000 }}{{ m!color #000000 }}"
+			"{{ m:color #ff0000 }}{{ m:color #000000 }}"
 		]
 	},
 

@@ -4,11 +4,11 @@ module.exports = {
 	args: 2,
 
 	help: {
-		head: "m!setzone [@user/userID] [timezone]",
+		head: "m:setzone [@user/userID] [timezone]",
 		desc: [
 			"Sets user's timezone to `timezone`.",
 			"Timezone is the nearest *time city* to you. For the US, it's usually *Los Angeles*, *Denver*, *Chicago*, and *New York*. If you're unsure what to input, you can visit this link and click on yourself on the map: {timezone}",
-			"{{ m!setzone @user Chicago }}{{ m!setzone userID Sydney }}"
+			"{{ m:setzone @user Chicago }}{{ m:setzone userID Sydney }}"
 		]
 	},
 

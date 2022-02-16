@@ -5,7 +5,7 @@ module.exports = {
 	gate: 5,
 
 	help: {
-		head: "m!test",
+		head: "m:test",
 		desc: "Runs a test."
 	},
 

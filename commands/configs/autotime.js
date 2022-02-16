@@ -3,10 +3,10 @@ module.exports = {
 	gate: 3,
 
 	help: {
-		head: "m!autotime",
+		head: "m:autotime",
 		desc: [
-			"Toggles autotime on or off. When enabled, if a message contains a time string, it will automatically send out the time block from **m!time**",
-			"{{ m!autotime }}"
+			"Toggles autotime on or off. When enabled, if a message contains a time string, it will automatically send out the time block from **m:time**",
+			"{{ m:autotime }}"
 		]
 	},
 

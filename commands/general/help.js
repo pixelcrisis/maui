@@ -4,11 +4,11 @@ module.exports = {
 	gate: 1,
 
 	help: {
-		head: "m!help (command)",
+		head: "m:help (command)",
 		desc: [
 			"Without **(command)**, returns general help.",
 			"Optionally pass a **(command)** to view the help block for that command.",
-			"{{ m!help }}{{ m!help help }}"
+			"{{ m:help }}{{ m:help help }}"
 		]
 	},
 
@@ -18,9 +18,9 @@ module.exports = {
 			"I track timezones so you know what time it is for other members!",
 			"I also handle posting embeds (bulletins!) ",
 			"",
-			"`m!time` - displays the times in the server.",
-			"`m!commands` - shows available commands.",
-			"`m!help command` - will show help for *command*.",
+			"`m:time` - displays the times in the server.",
+			"`m:commands` - shows available commands.",
+			"`m:help command` - will show help for *command*.",
 			"",
 			"{website} - {discord} - {invite} - Maui {ver}"
 		]

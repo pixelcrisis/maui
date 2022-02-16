@@ -4,7 +4,7 @@ module.exports = {
 	gate: 1,
 
 	help: {
-		head: "m!commands",
+		head: "m:commands",
 		desc: "Lists the commands you have access to."
 	},
 
@@ -15,8 +15,8 @@ module.exports = {
 	},
 
 	lang: {
-		prefix: "**Prefix** for {guild}: `m!`",
-		footer: "Use `m!help command` for more info."
+		prefix: "**Prefix** for {guild}: `m:`",
+		footer: "Use `m:help command` for more info."
 	},
 
 	fire: async function (Maui, Msg) {

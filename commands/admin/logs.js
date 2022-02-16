@@ -3,7 +3,7 @@ module.exports = {
 	gate: 5,
 
 	help: {
-		head: "m!logs",
+		head: "m:logs",
 		desc: "Prints most recent logs."
 	},
 

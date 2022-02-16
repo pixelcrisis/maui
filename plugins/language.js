@@ -29,7 +29,7 @@ module.exports = Maui => {
 			{ from: "{yay}",	to: this._rand(this._ENG.pos) },
 			{ from: "{nay}",	to: this._rand(this._ENG.neg) },
 
-			{ from: "m!", 			to: Msg.config ? Msg.config.prefix : "m!" },
+			{ from: "m:", 			to: Msg.config ? Msg.config.prefix : "m:" },
 			{ from: "{me}", 		to: `<@${ this.user.id }>` },
 			{ from: "{users}", 	to: this.memberCount() },
 			{ from: "{guilds}", to: this.serverCount() },

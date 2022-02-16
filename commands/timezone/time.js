@@ -4,20 +4,20 @@ module.exports = {
 	gate: 1,
 
 	help: {
-		head: "m!time (time/user)",
+		head: "m:time (time/user)",
 		desc: [
 			"Displays the current time in the server.",
 			"You can pass a `time` to see future times.",
 			"Additionally pass a `user` to see their zone.",
-			"{{ m!time }}{{ m!t 9pm }}{{ m!t user }}"
+			"{{ m:time }}{{ m:t 9pm }}{{ m:t user }}"
 		]
 	},
 
 	lang: {
 		curr: "Current Time in {guild}",
 		when: "Time @ {opts} in {name}",
-		none: "{hmm}, {guild} doesn't have any timezones yet! Set yours with `m!zone`",
-		zone: "{nay}, you don't have a timezone set! Set one with `m!zone`"
+		none: "{hmm}, {guild} doesn't have any timezones yet! Set yours with `m:zone`",
+		zone: "{nay}, you don't have a timezone set! Set one with `m:zone`"
 	},
 
 	fire: async function (Maui, Msg) {

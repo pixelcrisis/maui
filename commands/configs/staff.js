@@ -3,19 +3,19 @@ module.exports = {
 	gate: 3,
 
 	help: {
-		head: "m!staff (@role / roleID)",
+		head: "m:staff (@role / roleID)",
 		desc: [
 			"Pass a **(role)** to toggle access to staff commands.",
 			"Without a **(role)**, returns a list of roles with staff access.",
-			"You can use the **m!roles** command to get all the role IDs in your server.",
+			"You can use the **m:roles** command to get all the role IDs in your server.",
 			"Roles named *Staff* and *Mod* are automatically given staff access.",
-			"{{ m!staff }}{{ m!staff @Mediator }}{{ m!staff 802938998284222484 }}"
+			"{{ m:staff }}{{ m:staff @Mediator }}{{ m:staff 802938998284222484 }}"
 		]
 	},
 
 	post: {
 		head: "{guild} Staff Roles",
-		foot: "m2help staff",
+		foot: "m:help staff",
 		desc: ""
 	},
 

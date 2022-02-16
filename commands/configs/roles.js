@@ -3,7 +3,7 @@ module.exports = {
 	gate: 2,
 
 	help: {
-		head: "m!roles",
+		head: "m:roles",
 		desc: "Returns a list of Role IDs in the server."
 	},
 

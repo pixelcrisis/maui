@@ -5,7 +5,7 @@
 	},
 
 	"base": {
-		"prefix": "m!",
+		"prefix": "m:",
 		"color": "0xB9FE84",
 		"starboard": {
 			"emoji": "⭐",

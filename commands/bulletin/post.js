@@ -5,11 +5,11 @@ module.exports = {
 	args: 1,
 
 	help: {
-		head: "m!post [embed]",
+		head: "m:post [embed]",
 		desc: [
 			"Post a discord **[embed]** into the current channel.",
 			"You can use {embedgen} to help quickly make your own!",
-			`{{ m!post { "title": "Hello World!" } }}`
+			`{{ m:post { "title": "Hello World!" } }}`
 		]
 	},
 

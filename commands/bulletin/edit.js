@@ -5,12 +5,12 @@ module.exports = {
 	args: 2,
 
 	help: {
-		head: "m!edit [messageID] [content]",
+		head: "m:edit [messageID] [content]",
 		desc: [
 			"Change a bulletin with **[messageID]** to **[content]**",
 			"You can use an {embedgen} to help quickly make your own.",
 			"You can get message IDs by enabling {developer}.",
-			`{{ m!edit 606874363089649684 { "title": "Hello World!" } }}`
+			`{{ m:edit 606874363089649684 { "title": "Hello World!" } }}`
 		]
 	},
 

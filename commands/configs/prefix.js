@@ -4,10 +4,10 @@ module.exports = {
 	args: 1,
 
 	help: {
-		head: "m!prefix [prefix]",
+		head: "m:prefix [prefix]",
 		desc: [
 			"Change the default prefix to **[prefix]**",
-			"{{ m!prefix > }}{{ m!prefix ^ }}"
+			"{{ m:prefix > }}{{ m:prefix ^ }}"
 		]
 	},
 
@@ -25,7 +25,7 @@ module.exports = {
 		Msg.trigger = this.name
 		await Maui.runTest(Msg, '', 'Fail')
 		await Maui.runTest(Msg, '^', 'Set ^')
-		await Maui.runTest(Msg, 'm2', 'Set m2')
+		await Maui.runTest(Msg, 'm.', 'Set m.')
 		return true
 	}
 }

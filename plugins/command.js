@@ -38,13 +38,13 @@ module.exports = Maui => {
 
 	Maui.getHelp = function (Msg, Command) {
 		let reqs = Command.args || Command.tags
-		let list = Command.also ? Command.also.join("**, **m!") : false
+		let list = Command.also ? Command.also.join("**, **m:") : false
 		
 		let post = this.$copy(Command.help)
 		if (!Array.isArray(post.desc)) post.desc = [ post.desc ]
 
 		if (list) {
-			let also = `\nAlso Works: **m!${ list }**`
+			let also = `\nAlso Works: **m:${ list }**`
 			post.desc.push(also)
 		}
 

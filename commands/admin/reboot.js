@@ -4,7 +4,7 @@ module.exports = {
 	gate: 5,
 
 	help: {
-		head: "m!reboot",
+		head: "m:reboot",
 		desc: "Updates and reboots the bot."
 	},
 
